@@ -1,4 +1,9 @@
+require 'action_view'
+require 'action_view/helpers'
+
 class Cat < ApplicationRecord
+include ActionView::Helpers::DateHelper
+
   validates :birth_date, :color, :name, :sex, presence: true
   validates :color, inclusion: { in: CAT_COLORS }
   validates :sex, inclusion: { in: ["M", "F"] }
@@ -11,5 +16,8 @@ class Cat < ApplicationRecord
     end
   end
 
-  # before cat is saved to DB, CAT_COLORS.include?(:color)
+  def age
+
+  end
+
 end
